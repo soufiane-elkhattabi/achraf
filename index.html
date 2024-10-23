@@ -277,25 +277,66 @@
             margin-bottom: 1.5rem;
         }
 
-        .portfolio-links {
-            display: flex;
-            gap: 1rem;
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
         }
 
-        .portfolio-links a {
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+
+        .expand-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary-color);
+            color: var(--secondary-color);
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: var(--primary-color);
-            color: var(--secondary-color);
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
             transition: var(--transition);
+            z-index: 2;
         }
 
-        .portfolio-links a:hover {
-            transform: translateY(-3px);
+        .expand-btn:hover {
+            transform: scale(1.1);
         }
 
         /* About Section */
@@ -1455,85 +1496,74 @@
             <button class="filter-btn" data-filter="social-media">Social Media Posts</button>
             <button class="filter-btn" data-filter="color-correction">Color Correction</button>
         </div>
-    
+
         <div class="portfolio-grid">
             <div class="portfolio-item" data-category="social-media" data-aos="fade-up">
                 <img src="img/project1.png" alt="Template Design Example">
-                <div class="portfolio-overlay">
-                    <span class="project-category">Social Media Post</span>
-                    <h3></h3>
-                    <p></p>
-                </div>
+                <button class="expand-btn">
+                    <i class="fas fa-expand"></i>
+                </button>
             </div>
-    
-            <div class="portfolio-item" data-category="social-media" data-aos="fade-up" data-aos-delay="100">
-                <img src="img/project2.png" alt="Social Media Post Design">
-                <div class="portfolio-overlay">
-                    <span class="project-category">Social Media Posts</span>
-                    <h3></h3>
-                    <p></p>
-                </div>
+            <div class="portfolio-item" data-category="social-media" data-aos="fade-up">
+                <img src="img/project2.png" alt="Template Design Example">
+                <button class="expand-btn">
+                    <i class="fas fa-expand"></i>
+                </button>
             </div>
-    
-            <div class="portfolio-item" data-category="social-media" data-aos="fade-up" data-aos-delay="200">
-                <img src="img/project3.png" alt="Color Correction Example">
-                <div class="portfolio-overlay">
-                    <span class="project-category">Social Media Posts</span>
-                    <h3></h3>
-                    <p></p>
-                </div>
+            <div class="portfolio-item" data-category="social-media" data-aos="fade-up">
+                <img src="img/project3.png" alt="Template Design Example">
+                <button class="expand-btn">
+                    <i class="fas fa-expand"></i>
+                </button>
             </div>
-    
-            <div class="portfolio-item" data-category="templates" data-aos="fade-up">
+            <div class="portfolio-item" data-category="social-media" data-aos="fade-up">
                 <img src="img/proejct4.png" alt="Template Design Example">
-                <div class="portfolio-overlay">
-                    <span class="project-category">Templates</span>
-                    <h3></h3>
-                    <p></p>
-                </div>
+                <button class="expand-btn">
+                    <i class="fas fa-expand"></i>
+                </button>
             </div>
-            <div class="portfolio-item" data-category="color-correction" data-aos="fade-up">
+            <div class="portfolio-item" data-category="social-media" data-aos="fade-up">
                 <img src="img/project5.png" alt="Template Design Example">
-                <div class="portfolio-overlay">
-                    <span class="project-category">Color Correction</span>
-                    <h3></h3>
-                    <p></p>
-                </div>
+                <button class="expand-btn">
+                    <i class="fas fa-expand"></i>
+                </button>
             </div>
-            <div class="portfolio-item" data-category="color-correction" data-aos="fade-up">
+            <div class="portfolio-item" data-category="social-media" data-aos="fade-up">
                 <img src="img/project6.png" alt="Template Design Example">
-                <div class="portfolio-overlay">
-                    <span class="project-category">Color Correction</span>
-                    <h3></h3>
-                    <p></p>
-                </div>
+                <button class="expand-btn">
+                    <i class="fas fa-expand"></i>
+                </button>
             </div>
             <div class="portfolio-item" data-category="social-media" data-aos="fade-up">
                 <img src="img/project7.png" alt="Template Design Example">
-                <div class="portfolio-overlay">
-                    <span class="project-category">Social Media Posts</span>
-                    <h3></h3>
-                    <p></p>
-                </div>
+                <button class="expand-btn">
+                    <i class="fas fa-expand"></i>
+                </button>
             </div>
-            <div class="portfolio-item" data-category="color-correction" data-aos="fade-up">
+            <div class="portfolio-item" data-category="social-media" data-aos="fade-up">
                 <img src="img/project8.png" alt="Template Design Example">
-                <div class="portfolio-overlay">
-                    <span class="project-category">Color Correction</span>
-                    <h3></h3>
-                    <p></p>
-                </div>
+                <button class="expand-btn">
+                    <i class="fas fa-expand"></i>
+                </button>
             </div>
             <div class="portfolio-item" data-category="social-media" data-aos="fade-up">
                 <img src="img/banner lion.psd 2.png" alt="Template Design Example">
-                <div class="portfolio-overlay">
-                    <span class="project-category">Social Media Posts</span>
-                    <h3></h3>
-                    <p></p>
-                </div>
+                <button class="expand-btn">
+                    <i class="fas fa-expand"></i>
+                </button>
             </div>
         </div>
     </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <img src="" alt="Expanded image">
+        </div>
+    </div>
     
     <section id="about" class="about">
         <div class="about-content">
@@ -1604,7 +1634,7 @@
             </div>
     
             <!-- Location Card -->
-            <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+            <!-- <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="contact-card-inner">
                     <div class="contact-icon">
                         <i class="fas fa-map-marker-alt"></i>
@@ -1613,7 +1643,7 @@
                     <p>Based in Morocco</p>
                     <span class="contact-link">Tamesna, Morocco</span>
                 </div>
-            </div>
+            </div> -->
     
             <!-- Social Card -->
             <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
@@ -1760,6 +1790,10 @@ const modal = document.querySelector('.modal');
 const modalClose = document.querySelector('.modal-close');
 const contactForm = document.getElementById('contact-form');
 const successMessage = document.querySelector('.success-message');
+const lightbox = document.querySelector('.lightbox');
+const lightboxImg = lightbox?.querySelector('img');
+const lightboxClose = lightbox?.querySelector('.lightbox-close');
+const expandButtons = document.querySelectorAll('.expand-btn');
 
 // Remove loader when page is loaded
 window.addEventListener('load', () => {
@@ -1770,66 +1804,70 @@ window.addEventListener('load', () => {
 });
 
 // Mobile menu toggle
-mobileMenuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+mobileMenuBtn?.addEventListener('click', () => {
+    navLinks?.classList.toggle('active');
     const menuIcon = mobileMenuBtn.querySelector('i');
-    menuIcon.classList.toggle('fa-bars');
-    menuIcon.classList.toggle('fa-times');
+    menuIcon?.classList.toggle('fa-bars');
+    menuIcon?.classList.toggle('fa-times');
 });
 
 // Portfolio filters
-filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        filterButtons.forEach(button => button.classList.remove('active'));
-        btn.classList.add('active');
+const handleFilterClick = (btn) => {
+    filterButtons.forEach(button => button.classList.remove('active'));
+    btn.classList.add('active');
 
-        const filter = btn.getAttribute('data-filter');
-        
-        portfolioItems.forEach(item => {
-            item.style.display = 
-                filter === 'all' || item.getAttribute('data-category') === filter 
-                    ? 'block' 
-                    : 'none';
-        });
+    const filter = btn.getAttribute('data-filter');
+    
+    portfolioItems.forEach(item => {
+        item.style.display = 
+            filter === 'all' || item.getAttribute('data-category') === filter 
+                ? 'block' 
+                : 'none';
     });
+};
+
+filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => handleFilterClick(btn));
 });
 
 // Project modal
 viewProjectButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
-        modal.classList.add('active');
+        modal?.classList.add('active');
     });
 });
 
 modalClose?.addEventListener('click', () => {
-    modal.classList.remove('active');
+    modal?.classList.remove('active');
 });
 
 // Close modal when clicking outside
 window.addEventListener('click', (e) => {
     if (e.target === modal) {
-        modal.classList.remove('active');
+        modal?.classList.remove('active');
     }
 });
 
 // Contact form
-contactForm?.addEventListener('submit', (e) => {
+contactForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
     // Add your form submission logic here
     
-    successMessage.classList.add('active');
+    successMessage?.classList.add('active');
     contactForm.reset();
 
     setTimeout(() => {
-        successMessage.classList.remove('active');
+        successMessage?.classList.remove('active');
     }, 3000);
 });
 
 // Scroll effects
 const handleScroll = () => {
     // Header background
-    header.classList.toggle('scrolled', window.scrollY > 50);
+    if (header) {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    }
 
     // Active nav link
     let current = '';
@@ -1841,7 +1879,7 @@ const handleScroll = () => {
     });
 
     navLinksItems.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href').slice(1) === current);
+        link.classList.toggle('active', link.getAttribute('href')?.slice(1) === current);
     });
 };
 
@@ -1858,18 +1896,58 @@ navLinksItems.forEach(link => {
 });
 
 // Portfolio item hover effect
-portfolioItems.forEach(item => {
-    const overlay = item.querySelector('.portfolio-overlay');
-    if (!overlay) return;
+const setupPortfolioHover = () => {
+    portfolioItems.forEach(item => {
+        const overlay = item.querySelector('.portfolio-overlay');
+        if (!overlay) return;
 
-    item.addEventListener('mouseenter', () => {
-        overlay.style.bottom = '0';
+        item.addEventListener('mouseenter', () => {
+            overlay.style.bottom = '0';
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            overlay.style.bottom = '-100%';
+        });
     });
-    
-    item.addEventListener('mouseleave', () => {
-        overlay.style.bottom = '-100%';
+};
+
+// Lightbox functionality
+const setupLightbox = () => {
+    if (!lightbox || !lightboxImg || !lightboxClose) return;
+
+    expandButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const portfolioItem = button.closest('.portfolio-item');
+            const img = portfolioItem?.querySelector('img');
+            if (img) {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            }
+        });
     });
+
+    lightboxClose.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+    });
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            lightbox.classList.remove('active');
+        }
+    });
+};
+
+// Close lightbox with escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox?.classList.contains('active')) {
+        lightbox.classList.remove('active');
+    }
 });
+
+// Initialize portfolio features
+setupPortfolioHover();
+setupLightbox();
 
     </script>
 </body>
